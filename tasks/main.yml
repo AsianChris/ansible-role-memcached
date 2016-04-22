@@ -1,8 +1,10 @@
 ---
 - name: Install
   apt: pkg=memcached state=present
-  sudo: yes
+  become: yes
+  become_method: sudo
 
 - name: Enable on boot
   service: name=memcached state=started enabled=yes
-  sudo: yes
+  become: yes
+  become_method: sudo
